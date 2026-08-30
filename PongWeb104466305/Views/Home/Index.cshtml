@@ -1,0 +1,21 @@
+﻿@model PongWeb104466305.Models.PongViewModel
+@{
+    ViewData["Title"] = "Pong Simulator";
+}
+
+<h1>Pong Simulator</h1>
+<p class="lead">104466305 &mdash; SWE40006 Deployment Task 2</p>
+
+<table class="table table-sm w-auto">
+    <tr><th>Deployment label</th><td>@Model.Options.DeploymentLabel</td></tr>
+    <tr><th>Lane width</th><td>@Model.Options.LaneWidth</td></tr>
+    <tr><th>Frames rendered</th><td>@Model.Options.Frames</td></tr>
+    <tr><th>Ball / wall character</th><td>@Model.Options.BallChar / @Model.Options.WallChar</td></tr>
+    <tr><th>API key</th><td>@Model.ApiKeyMasked</td></tr>
+    <tr><th>Instance</th><td>@Model.MachineName</td></tr>
+    <tr><th>Total bounces</th><td>@Model.TotalBounces</td></tr>
+</table>
+
+<pre style="line-height:1.1">@string.Join("\n", Model.Frames.Select(f => f.Lane))</pre>
+
+<p><a href="/health">View health endpoint</a></p>
